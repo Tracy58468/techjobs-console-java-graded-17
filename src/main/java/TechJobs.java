@@ -10,10 +10,11 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
+    // MAIN PROGRAM RUNNER
     public static void main (String[] args) {
 
         // Initialize our field map with key/name pairs
-        HashMap<String, String> columnChoices = new HashMap<>();
+        HashMap<String, String> columnChoices = new HashMap<>(); // Declares columnChoices. First String is key, used internally, second String is value, used externally to present information to the user.
         columnChoices.put("core competency", "Skill");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
@@ -21,7 +22,7 @@ public class TechJobs {
         columnChoices.put("all", "All");
 
         // Top-level menu options
-        HashMap<String, String> actionChoices = new HashMap<>();
+        HashMap<String, String> actionChoices = new HashMap<>(); // Declares actionChoices. First String is key, used internally, second String is value, used externally to present information to the user.
         actionChoices.put("search", "Search");
         actionChoices.put("list", "List");
 
@@ -70,6 +71,7 @@ public class TechJobs {
         }
     }
 
+    // UTILITY TO DISPLAY MENU OF CHOICES AND TO RETURN USER SELECTION.
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
@@ -92,12 +94,12 @@ public class TechJobs {
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
                 System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
-            }
+            } // So if the number of choices is 2, like for actionChoices, length will be 2 (because we're only looking for "search" or "list". If it's columnChoices, length will be 5.
 
-            if (in.hasNextInt()) {
+            if (in.hasNextInt()) { // Since "in" is a Scanner item. Looks to see if the input is an integer.
                 choiceIdx = in.nextInt();
-                in.nextLine();
-            } else {
+                in.nextLine(); // To deal with the carriage return/Enter key
+            } else { // If the input is not an integer, look to see if the input is "x".
                 String line = in.nextLine();
                 boolean shouldQuit = line.equals("x");
                 if (shouldQuit) {
@@ -117,6 +119,7 @@ public class TechJobs {
         return choiceKeys[choiceIdx];
     }
 
+    // METHOD TO PRINT JOBS
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 

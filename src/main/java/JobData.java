@@ -15,6 +15,8 @@ import java.util.List;
  */
 public class JobData {
 
+    // Below are variables we're declaring.
+
     private static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
 
@@ -27,6 +29,8 @@ public class JobData {
      * @param field The column to retrieve values from
      * @return List of all of the values of the given field
      */
+
+    //
     public static ArrayList<String> findAll(String field) {
 
         // load data, if not already loaded
@@ -64,6 +68,8 @@ public class JobData {
      * @param value Value of teh field to search for
      * @return List of all jobs matching the criteria
      */
+
+    //
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
 
         // load data, if not already loaded
@@ -121,13 +127,13 @@ public class JobData {
 
             // Put the records into a more friendly format
             for (CSVRecord record : records) {
-                HashMap<String, String> newJob = new HashMap<>();
+                HashMap<String, String> newJob = new HashMap<>(); // So is this creating a brand new hashmap for every single job? Yes, that's exactly what it's doing.
 
                 for (String headerLabel : headers) {
                     newJob.put(headerLabel, record.get(headerLabel));
                 }
 
-                allJobs.add(newJob);
+                allJobs.add(newJob); // And then it puts each hashmap into the arraylist.
             }
 
             // flag the data as loaded, so we don't do it twice
