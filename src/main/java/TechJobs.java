@@ -10,6 +10,10 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
+    public static boolean isEmpty(ArrayList<HashMap<String, String>> hashMap) {
+        return true;
+    }
+
     // MAIN PROGRAM RUNNER
     public static void main (String[] args) {
 
@@ -123,6 +127,32 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+
+
+//        System.out.println("printJobs is not implemented yet");
+
+        if (isEmpty(someJobs)){
+
+//            System.out.println(someJobs);
+            System.out.print("No Results");
+
+        } else {
+
+            for (HashMap<String, String> job : someJobs) {
+
+                System.out.println("\n*****");
+
+                for (Map.Entry<String, String> jobEntry : job.entrySet()) {
+
+                    System.out.println(jobEntry.getKey() + ": " + jobEntry.getValue());
+
+                }
+
+                System.out.print("*****\n");
+
+            }
+
+        }
+        System.out.print("");
     }
 }
