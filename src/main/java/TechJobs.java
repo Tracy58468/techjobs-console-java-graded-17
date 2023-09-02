@@ -10,12 +10,12 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static boolean isEmpty(ArrayList<HashMap<String, String>> hashMap) {
-        return true;
-    }
+//    public static boolean isEmpty(ArrayList<HashMap<String, String>> arrayListHashMap) {
+//        return false;
+//    }
 
     // MAIN PROGRAM RUNNER
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>(); // Declares columnChoices. First String is key, used internally, second String is value, used externally to present information to the user.
@@ -58,6 +58,8 @@ public class TechJobs {
                 }
 
             } else { // choice is "search"
+
+                //CALL FINDBYVALUE HERE?
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
@@ -118,7 +120,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -128,12 +130,14 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
 
-
 //        System.out.println("printJobs is not implemented yet");
 
-        if (isEmpty(someJobs)){
+//        System.out.println(someJobs);
 
-//            System.out.println(someJobs);
+//        if (isEmpty(someJobs)) {
+
+        if (someJobs.size() == 0) {
+
             System.out.print("No Results");
 
         } else {
@@ -150,9 +154,10 @@ public class TechJobs {
 
                 System.out.print("*****\n");
 
-            }
+//            }
 
         }
-        System.out.print("");
+//            System.out.print("");
+        }
     }
 }
