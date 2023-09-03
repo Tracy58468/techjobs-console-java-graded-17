@@ -47,7 +47,7 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
             String aValue = row.get(field);
 
-            if (!values.contains(aValue)) {
+            if (!values.contains(aValue.toLowerCase())) {
                 values.add(aValue);
             }
         }
@@ -85,7 +85,7 @@ public class JobData {
 
             String aValue = row.get(column); // get the column and call it aValue
 
-            if (aValue.contains(value)) { // if the column contains the search term,...
+            if (aValue.toLowerCase().contains(value.toLowerCase())) { // if the column contains the search term,...
                 jobs.add(row); // ... add the row to the new ArrayList
             }
         }
@@ -113,7 +113,7 @@ public class JobData {
 
             for (String aValue : row.values()) {// look in every value of the HashMap for the search term
 
-                if (aValue.contains(value) && !jobs.contains(row)) { // if the value of the HashMap contains the search term,...
+                if (aValue.toLowerCase().contains(value.toLowerCase()) && !jobs.contains(row)) { // if the value of the HashMap contains the search term AND if the row doesn't ALREADY exist in jobs,...
                     jobs.add(row); // ... add the HashMap row to the new ArrayList
 
                 }
