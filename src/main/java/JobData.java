@@ -79,18 +79,18 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>(); // creating a new ArrayList to shove search results into
 
-        for (HashMap<String, String> row : allJobs) {
+        for (HashMap<String, String> row : allJobs) { // for each row in allJobs
 
-            String aValue = row.get(column);
+            String aValue = row.get(column); // get the column and call it aValue
 
-            if (aValue.contains(value)) {
-                jobs.add(row);
+            if (aValue.contains(value)) { // if the column contains the search term,...
+                jobs.add(row); // ... add the row to the new ArrayList
             }
         }
 
-        return jobs;
+        return jobs; // return the new ArrayList
     }
 
     /**
@@ -107,8 +107,21 @@ public class JobData {
         // TODO - implement this method
         // Want to search ALL columns for value.
 
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>(); // creating a new ArrayList to shove search results into
 
-        return null;
+        for (HashMap<String, String> row : allJobs) { // for each row in allJobs
+
+            for (String aValue : row.values()) {// look in every value of the HashMap for the search term
+
+                if (aValue.contains(value) && !jobs.contains(row)) { // if the value of the HashMap contains the search term,...
+                    jobs.add(row); // ... add the HashMap row to the new ArrayList
+
+                }
+            }
+        }
+
+        return jobs; // return the new ArrayList
+
     }
 
     /**
@@ -134,7 +147,7 @@ public class JobData {
 
             // Put the records into a more friendly format
             for (CSVRecord record : records) {
-                HashMap<String, String> newJob = new HashMap<>(); // So is this creating a brand new hashmap for every single job? Yes, that's exactly what it's doing.
+                HashMap<String, String> newJob = new HashMap<>(); // So is this creating a brand-new hashmap for every single job? Yes, that's exactly what it's doing.
 
                 for (String headerLabel : headers) {
                     newJob.put(headerLabel, record.get(headerLabel));

@@ -10,10 +10,6 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-//    public static boolean isEmpty(ArrayList<HashMap<String, String>> arrayListHashMap) {
-//        return false;
-//    }
-
     // MAIN PROGRAM RUNNER
     public static void main(String[] args) {
 
@@ -59,7 +55,7 @@ public class TechJobs {
 
             } else { // choice is "search"
 
-                //CALL FINDBYVALUE HERE?
+                //CALL FINDBYVALUE HERE - already called!
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
@@ -129,13 +125,6 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-
-//        System.out.println("printJobs is not implemented yet");
-
-//        System.out.println(someJobs);
-
-//        if (isEmpty(someJobs)) {
-
         if (someJobs.size() == 0) {
 
             System.out.print("No Results");
@@ -154,10 +143,7 @@ public class TechJobs {
 
                 System.out.print("*****\n");
 
-//            }
-
-        }
-//            System.out.print("");
+            }
         }
     }
 }
